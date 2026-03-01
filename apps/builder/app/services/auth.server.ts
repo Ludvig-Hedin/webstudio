@@ -99,6 +99,11 @@ if (env.DEV_LOGIN === "true") {
         .toString()
         .split(":");
 
+      console.log("Dev login attempt:", {
+        email,
+        secret,
+        expectedSecret: env.AUTH_SECRET,
+      });
       if (secret === env.AUTH_SECRET) {
         try {
           const context = await createContext(request);
