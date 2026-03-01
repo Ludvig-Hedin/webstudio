@@ -21,6 +21,17 @@ export const preventCrossOriginCookie = (
     return;
   }
 
+  const isCallback =
+    request.url.includes("/auth/github/callback") ||
+    request.url.includes("/auth/google/callback");
+
+  if (isCallback) {
+    // OAuth callbacks can come from complex cross-origin redirects
+    // which may not perfectly match `sec-fetch-mode` in all browsers/environments.
+    // OAuth provides its own built-in CSRF protection via the `state` parameter anyway.
+    return;
+  }
+
   if (
     request.headers.get("sec-fetch-mode") === "navigate" &&
     request.method === "GET"
