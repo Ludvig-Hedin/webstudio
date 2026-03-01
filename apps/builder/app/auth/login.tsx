@@ -63,7 +63,7 @@ export const Login = ({
 
         <TooltipProvider>
           <Flex direction="column" gap="3" css={{ width: "100%" }}>
-            <Form method="post" style={{ display: "contents" }}>
+            <Form method="post" reloadDocument style={{ display: "contents" }}>
               <Button
                 disabled={isGoogleEnabled === false}
                 prefix={<GoogleIcon size={22} />}
