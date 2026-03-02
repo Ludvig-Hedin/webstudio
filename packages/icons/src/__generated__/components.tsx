@@ -663,7 +663,7 @@ export const AlignSelfEndIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M7.35 11.903h1.3c.719 0 1.302-.582 1.302-1.3V2.795c0-.719-.583-1.301-1.302-1.301h-1.3c-.72 0-1.302.582-1.302 1.3v7.807c0 .719.583 1.301 1.301 1.301ZM1.503 14.505h13"
@@ -783,7 +783,7 @@ export const ArrowDownAZIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth=".667"
@@ -808,7 +808,7 @@ export const ArrowDownNarrowWideIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth=".667"
@@ -833,7 +833,7 @@ export const ArrowDownWideNarrowIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth=".667"
@@ -858,7 +858,7 @@ export const ArrowDownZAIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth=".667"
@@ -1297,7 +1297,7 @@ export const BorderRadiusIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          fill="#11181C"
+          fill="currentColor"
           fillRule="evenodd"
           d="M1.917 10.666a8.75 8.75 0 0 1 8.75-8.75h2.666a.75.75 0 0 1 0 1.5h-2.667a7.25 7.25 0 0 0-7.25 7.25v2.667a.75.75 0 0 1-1.5 0v-2.667Z"
           clipRule="evenodd"
@@ -1345,7 +1345,7 @@ export const BorderWidthIndividualIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M5.4 1.744h5.2M14.5 10.356v-5.2M1.5 10.356v-5.2M5.4 14.256h5.2"
@@ -1803,7 +1803,7 @@ export const ChevronsLeftIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M7.069 12.656 2.413 8l4.656-4.656M13.587 12.656 8.931 8l4.656-4.656"
@@ -2835,7 +2835,7 @@ export const GradientConicIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <g
-          fill="#11181C"
+          fill="currentColor"
           clipPath="url(#c15388f97__paint0_angular_9413_9319_clip_path)"
         >
           <path d="M8 8V0a8 8 0 0 1 4 1.072Z" />
@@ -3279,9 +3279,9 @@ export const LifeBuoyIcon: IconComponent = forwardRef(
         {...props}
         ref={forwardedRef}
       >
-        <circle cx="7.995" cy="7.995" r="6.665" stroke="#000" />
+        <circle cx="7.995" cy="7.995" r="6.665" stroke="currentColor" />
         <path d="m3.287 3.287 2.826 2.826M9.886 6.113l2.827-2.826M9.886 9.887l2.827 2.826M6.113 9.887l-2.827 2.826" />
-        <circle cx="7.995" cy="7.995" r="2.665" stroke="#000" />
+        <circle cx="7.995" cy="7.995" r="2.665" stroke="currentColor" />
       </svg>
     );
   }
@@ -3748,7 +3748,7 @@ export const NewFolderIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M8 6.667v4M6 8.667h4M13.333 13.333A1.333 1.333 0 0 0 14.667 12V5.333A1.334 1.334 0 0 0 13.333 4H8.067a1.333 1.333 0 0 1-1.127-.6l-.54-.8A1.333 1.333 0 0 0 5.287 2h-2.62a1.333 1.333 0 0 0-1.334 1.333V12a1.333 1.333 0 0 0 1.334 1.333h10.666Z"
@@ -4179,20 +4179,20 @@ export const RadioGroupIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          fill="#000"
-          stroke="#000"
+          fill="currentColor"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M8.839 8a1.82 1.82 0 1 1-3.64 0 1.82 1.82 0 0 1 3.64 0Z"
         />
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M7.019 13.027a5.027 5.027 0 1 0 0-10.054 5.027 5.027 0 0 0 0 10.054Z"
         />
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           d="M12.629 12.077v0a6.73 6.73 0 0 0-.337-8.565v0"
         />
@@ -5312,7 +5312,7 @@ export const TooltipIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="M14 10a1.333 1.333 0 0 1-1.333 1.333h-8L2 14V3.333A1.333 1.333 0 0 1 3.333 2h9.334A1.333 1.333 0 0 1 14 3.333V10Z"
@@ -6124,7 +6124,7 @@ export const XLogoIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          fill="#000"
+          fill="currentColor"
           d="M9.142 7.081 13.609 2H12.55L8.671 6.412 5.573 2H2l4.685 6.672L2 14h1.059l4.096-4.66L10.427 14H14L9.141 7.081Zm-1.45 1.65-.475-.665L3.44 2.78h1.626l3.048 4.266.475.664 3.962 5.546h-1.626L7.692 8.73Z"
         />
       </svg>
@@ -6146,7 +6146,7 @@ export const XSmallIcon: IconComponent = forwardRef(
         ref={forwardedRef}
       >
         <path
-          stroke="#000"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           d="m5.333 10.667 5.334-5.334M10.667 10.667 5.333 5.333"

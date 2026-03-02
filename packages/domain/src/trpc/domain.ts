@@ -143,6 +143,21 @@ export const domainRouter = router({
           logProjectName: `${project.title} - ${project.id}`,
         });
 
+        // Fire-and-forget: Purge the Publisher Worker's cache for this project
+        // so the newly published build is served immediately.
+        // The purge call uses the project's domain to identify cached pages.
+        // Note: The Publisher Worker validates the purge request origin.
+        // If this fails, the cache TTL (10 min) ensures eventual consistency.
+        if (result.success && env.PUBLISHER_HOST) {
+          const publisherUrl = `https://${project.domain}.${env.PUBLISHER_HOST}/__purge?domain=${project.domain}`;
+          fetch(publisherUrl, {
+            method: "POST",
+            headers: { "X-Builder-Origin": env.BUILDER_ORIGIN },
+          }).catch(() => {
+            // Silently ignore purge failures — cache expires via TTL anyway
+          });
+        }
+
         if (input.destination === "static" && result.success) {
           return { success: true as const, name };
         }

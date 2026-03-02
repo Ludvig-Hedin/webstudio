@@ -42,136 +42,200 @@ const spacing = {
   35: "448px",
 };
 
-const { styled, css, getCssText, globalCss, keyframes, config, reset } =
-  createStitches({
-    theme: {
-      colors: figma.color,
-      fonts: {
-        ...figma.fontFamilies,
-        sans: figma.fontFamilies.inter,
-        mono: figma.fontFamilies.robotoMono,
-      },
+const darkBlue = "#0A84FF";
+const darkColors: Record<string, string> = { ...figma.color };
 
-      opacity: {
-        1: "0.4",
-      },
-      spacing,
-      sizes: {
-        sidebarWidth: spacing[30],
-        controlHeight: spacing[11],
-      },
-      /**
-       * Use instead: textVariants / textStyles / <Text />
-       */
-      deprecatedFontSize: {
-        1: "8px",
-        2: "10px",
-        3: "12px",
-        // Legacy - don't use unless specified in Figma
-        4: "14px",
-        5: "19px",
-        6: "21px",
-        7: "27px",
-        8: "35px",
-        9: "59px",
-      },
+// Dynamically generate dark mode colors from the minimal light theme
+Object.keys(darkColors).forEach((key) => {
+  const k = key;
+  const val = darkColors[k];
 
-      borderRadius: {
-        1: "1px",
-        2: "2px",
-        3: "3px",
-        4: "4px",
-        5: "5px",
-        6: "6px",
-        7: "8px",
-        round: "50%",
-        pill: "9999px",
-      },
-      zIndices: {
-        max: "999",
-      },
-      easing: {
-        easeOutQuart: "cubic-bezier(0.25, 1, 0.5, 1)",
-        easeOut: "cubic-bezier(0.16, 1, 0.3, 1)",
-      },
-      shadows: figma.boxShadow,
+  if (val === "#007AFF") {
+    darkColors[k] = darkBlue;
+  } else if (
+    val === "#FFFFFF" &&
+    !k.includes("Contrast") &&
+    !k.includes("white")
+  ) {
+    darkColors[k] = "#1E1E1E";
+  } else if (
+    val === "#000000" &&
+    !k.includes("Button") &&
+    !k.includes("black")
+  ) {
+    darkColors[k] = "#FFFFFF";
+  } else if (val === "#1A1A1A") {
+    if (k.includes("background")) {
+      darkColors[k] = "#1A1A1A";
+    } else {
+      darkColors[k] = "#FFFFFF";
+    }
+  } else if (val === "#687076") {
+    darkColors[k] = "#888888";
+  } else if (val === "#C1C8CD") {
+    darkColors[k] = "#555555";
+  } else if (val === "#E5E5E5") {
+    darkColors[k] = "#333333";
+  } else if (val === "#EFEFEF") {
+    darkColors[k] = "#2A2A2A";
+  } else if (val === "#F5F5F5") {
+    darkColors[k] = "#2C2C2C";
+  } else if (val === "#EEEEEE") {
+    darkColors[k] = "#111111";
+  } else if (val === "#e0f0ff") {
+    darkColors[k] = "#0C2E59";
+  } // backgroundInfoNotification -> dark blue
+  else if (val === "#fffbd1") {
+    darkColors[k] = "#403A00";
+  } // backgroundAlertNotification -> dark yellow
+  else if (val === "#ffe9e9") {
+    darkColors[k] = "#4A1515";
+  } // backgroundDestructiveNotification -> dark red
+  else if (val === "#e9f9ee") {
+    darkColors[k] = "#0C3B24";
+  } // backgroundSuccessNotification -> dark green
+  else if (val.includes("linear-gradient(135deg, #007AFF")) {
+    darkColors[k] = "linear-gradient(135deg, #0A84FF 0%, #0A84FF 100%)";
+  }
+});
 
-      // Semantic values
-      panel: {
-        padding: `${spacing[5]} ${spacing[7]}`,
-        paddingInline: spacing[7],
-        paddingBlock: spacing[5],
-      },
+const {
+  styled,
+  css,
+  getCssText,
+  globalCss,
+  keyframes,
+  config,
+  reset,
+  createTheme,
+} = createStitches({
+  theme: {
+    colors: figma.color,
+    fonts: {
+      ...figma.fontFamilies,
+      sans: figma.fontFamilies.inter,
+      mono: figma.fontFamilies.robotoMono,
     },
-    media: {
-      tablet: "(min-width: 768px)",
-      hover: "(any-hover: hover)",
+    opacity: {
+      1: "0.4",
     },
-    utils: {
-      p: (value: Stitches.PropertyValue<"padding">) => ({
-        padding: value,
-      }),
-      pt: (value: Stitches.PropertyValue<"paddingTop">) => ({
-        paddingTop: value,
-      }),
-      pr: (value: Stitches.PropertyValue<"paddingRight">) => ({
-        paddingRight: value,
-      }),
-      pb: (value: Stitches.PropertyValue<"paddingBottom">) => ({
-        paddingBottom: value,
-      }),
-      pl: (value: Stitches.PropertyValue<"paddingLeft">) => ({
-        paddingLeft: value,
-      }),
-      px: (value: Stitches.PropertyValue<"paddingLeft">) => ({
-        paddingInline: value,
-      }),
-      py: (value: Stitches.PropertyValue<"paddingTop">) => ({
-        paddingBlock: value,
-      }),
-
-      m: (value: Stitches.PropertyValue<"margin">) => ({
-        margin: value,
-      }),
-      mt: (value: Stitches.PropertyValue<"marginTop">) => ({
-        marginTop: value,
-      }),
-      mr: (value: Stitches.PropertyValue<"marginRight">) => ({
-        marginRight: value,
-      }),
-      mb: (value: Stitches.PropertyValue<"marginBottom">) => ({
-        marginBottom: value,
-      }),
-      ml: (value: Stitches.PropertyValue<"marginLeft">) => ({
-        marginLeft: value,
-      }),
-      mx: (value: Stitches.PropertyValue<"marginLeft">) => ({
-        marginInline: value,
-      }),
-      my: (value: Stitches.PropertyValue<"marginTop">) => ({
-        marginBlock: value,
-      }),
-
-      userSelect: (value: Stitches.PropertyValue<"userSelect">) => ({
-        WebkitUserSelect: value,
-        userSelect: value,
-      }),
-
-      size: (value: Stitches.PropertyValue<"width">) => ({
-        width: value,
-        height: value,
-      }),
-
-      appearance: (value: Stitches.PropertyValue<"appearance">) => ({
-        WebkitAppearance: value,
-        appearance: value,
-      }),
-      backgroundClip: (value: Stitches.PropertyValue<"backgroundClip">) => ({
-        WebkitBackgroundClip: value,
-        backgroundClip: value,
-      }),
+    spacing,
+    sizes: {
+      sidebarWidth: spacing[30],
+      controlHeight: spacing[11],
     },
-  });
+    /**
+     * Use instead: textVariants / textStyles / <Text />
+     */
+    deprecatedFontSize: {
+      1: "8px",
+      2: "10px",
+      3: "12px",
+      // Legacy - don't use unless specified in Figma
+      4: "14px",
+      5: "19px",
+      6: "21px",
+      7: "27px",
+      8: "35px",
+      9: "59px",
+    },
+
+    borderRadius: {
+      1: "1px",
+      2: "2px",
+      3: "3px",
+      4: "4px",
+      5: "5px",
+      6: "6px",
+      7: "8px",
+      round: "50%",
+      pill: "9999px",
+    },
+    zIndices: {
+      max: "999",
+    },
+    easing: {
+      easeOutQuart: "cubic-bezier(0.25, 1, 0.5, 1)",
+      easeOut: "cubic-bezier(0.16, 1, 0.3, 1)",
+    },
+    shadows: figma.boxShadow,
+
+    // Semantic values
+    panel: {
+      padding: `${spacing[5]} ${spacing[7]}`,
+      paddingInline: spacing[7],
+      paddingBlock: spacing[5],
+    },
+  },
+  media: {
+    tablet: "(min-width: 768px)",
+    hover: "(any-hover: hover)",
+  },
+  utils: {
+    p: (value: Stitches.PropertyValue<"padding">) => ({
+      padding: value,
+    }),
+    pt: (value: Stitches.PropertyValue<"paddingTop">) => ({
+      paddingTop: value,
+    }),
+    pr: (value: Stitches.PropertyValue<"paddingRight">) => ({
+      paddingRight: value,
+    }),
+    pb: (value: Stitches.PropertyValue<"paddingBottom">) => ({
+      paddingBottom: value,
+    }),
+    pl: (value: Stitches.PropertyValue<"paddingLeft">) => ({
+      paddingLeft: value,
+    }),
+    px: (value: Stitches.PropertyValue<"paddingLeft">) => ({
+      paddingInline: value,
+    }),
+    py: (value: Stitches.PropertyValue<"paddingTop">) => ({
+      paddingBlock: value,
+    }),
+
+    m: (value: Stitches.PropertyValue<"margin">) => ({
+      margin: value,
+    }),
+    mt: (value: Stitches.PropertyValue<"marginTop">) => ({
+      marginTop: value,
+    }),
+    mr: (value: Stitches.PropertyValue<"marginRight">) => ({
+      marginRight: value,
+    }),
+    mb: (value: Stitches.PropertyValue<"marginBottom">) => ({
+      marginBottom: value,
+    }),
+    ml: (value: Stitches.PropertyValue<"marginLeft">) => ({
+      marginLeft: value,
+    }),
+    mx: (value: Stitches.PropertyValue<"marginLeft">) => ({
+      marginInline: value,
+    }),
+    my: (value: Stitches.PropertyValue<"marginTop">) => ({
+      marginBlock: value,
+    }),
+
+    userSelect: (value: Stitches.PropertyValue<"userSelect">) => ({
+      WebkitUserSelect: value,
+      userSelect: value,
+    }),
+
+    size: (value: Stitches.PropertyValue<"width">) => ({
+      width: value,
+      height: value,
+    }),
+
+    appearance: (value: Stitches.PropertyValue<"appearance">) => ({
+      WebkitAppearance: value,
+      appearance: value,
+    }),
+    backgroundClip: (value: Stitches.PropertyValue<"backgroundClip">) => ({
+      WebkitBackgroundClip: value,
+      backgroundClip: value,
+    }),
+  },
+});
 
 type VariblesValues = typeof config.theme;
 
@@ -197,6 +261,10 @@ const toVariblesNames = (values: VariblesValues): VariblesNames => {
 export const theme = toVariblesNames(config.theme);
 
 export const rawTheme = config.theme;
+
+export const darkTheme = createTheme("dark-theme", {
+  colors: darkColors as Record<string, string>,
+});
 
 export type CSS = Stitches.CSS<typeof config>;
 

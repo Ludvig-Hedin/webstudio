@@ -9,10 +9,12 @@ import {
   css,
   globalCss,
   theme,
+  darkTheme,
   PanelBanner,
   Link,
   buttonStyle,
 } from "@webstudio-is/design-system";
+import { useDarkMode } from "~/builder/hooks/use-dark-mode";
 import { BodyIcon, ExtensionIcon } from "@webstudio-is/icons";
 import { NavLink, useLocation, useRevalidator } from "@remix-run/react";
 import { atom } from "nanostores";
@@ -83,6 +85,7 @@ const sidebarLinkStyle = css({
   height: theme.spacing[13],
   paddingInline: theme.panel.paddingInline,
   outline: "none",
+  color: theme.colors.foregroundMain,
   "&:focus-visible, &:hover": {
     background: theme.colors.backgroundHover,
   },
@@ -114,7 +117,7 @@ const NavigationItems = ({
               className={sidebarLinkStyle()}
             >
               {item.prefix}
-              <Text variant="labels" color="main">
+              <Text variant="labelsSentenceCase" color="main">
                 {item.children}
               </Text>
             </NavLink>
@@ -151,6 +154,7 @@ const getView = (pathname: string, hasProjects: boolean) => {
 export const Dashboard = () => {
   const data = useStore($data);
   const location = useLocation();
+  const isDarkMode = useDarkMode();
 
   if (data === undefined) {
     return null;
@@ -169,103 +173,114 @@ export const Dashboard = () => {
 
   return (
     <TooltipProvider>
-      <Flex css={{ height: "100vh" }}>
+      <div
+        className={isDarkMode ? darkTheme.className : undefined}
+        style={{ display: "contents" }}
+      >
         <Flex
-          as="aside"
-          align="stretch"
-          direction="column"
-          shrink={false}
           css={{
-            width: theme.sizes.sidebarWidth,
-            borderRight: `1px solid ${theme.colors.borderMain}`,
-            position: "sticky",
-            top: 0,
+            height: "100vh",
+            background: theme.colors.backgroundPanel,
+            color: theme.colors.foregroundMain,
           }}
         >
-          <Header variant="aside">
-            <ProfileMenu user={user} userPlanFeatures={userPlanFeatures} />
-          </Header>
           <Flex
+            as="aside"
+            align="stretch"
             direction="column"
-            gap="3"
+            shrink={false}
             css={{
-              paddingInline: theme.spacing[7],
-              paddingBottom: theme.spacing[7],
+              width: theme.sizes.sidebarWidth,
+              borderRight: `1px solid ${theme.colors.borderMain}`,
+              position: "sticky",
+              top: 0,
             }}
           >
-            <Search />
-          </Flex>
-          <nav>
-            <CollapsibleSection label="Workspace" fullWidth>
-              <NavigationItems
-                items={
-                  view === "welcome" || hasProjects === false
-                    ? [
-                        {
-                          to: dashboardPath(),
-                          prefix: <ExtensionIcon />,
-                          children: "Welcome",
-                        },
-                      ]
-                    : [
-                        {
-                          to: dashboardPath("projects"),
-                          prefix: <BodyIcon />,
-                          children: "Projects",
-                        },
-                        {
-                          to: dashboardPath("templates"),
-                          prefix: <ExtensionIcon />,
-                          children: "Starter templates",
-                        },
-                      ]
-                }
-              />
-            </CollapsibleSection>
-            <CollapsibleSection label="Help & support" fullWidth>
-              <NavigationItems
-                items={help.map((item) => ({
-                  to: item.url,
-                  target: "_blank",
-                  prefix: item.icon,
-                  children: item.label,
-                }))}
-              />
-            </CollapsibleSection>
-          </nav>
-          <PanelBanner>
-            <Text variant="titles">Inception is live</Text>
-            <Text color="subtle">
-              An AI-powered design tool to explore ideas and instantly generate
-              HTML/CSS for Webstudio Builder or any other platform.
-            </Text>
-            <Link
-              className={buttonStyle({
-                color: "gradient",
-              })}
-              underline="none"
-              href="https://wstd.us/inception"
-              target="_blank"
-              color="contrast"
+            <Header variant="aside">
+              <ProfileMenu user={user} userPlanFeatures={userPlanFeatures} />
+            </Header>
+            <Flex
+              direction="column"
+              gap="3"
+              css={{
+                paddingInline: theme.spacing[7],
+                paddingBottom: theme.spacing[7],
+              }}
             >
-              Get started with Inception
-            </Link>
-          </PanelBanner>
+              <Search />
+            </Flex>
+            <nav>
+              <CollapsibleSection label="Workspace" fullWidth>
+                <NavigationItems
+                  items={
+                    view === "welcome" || hasProjects === false
+                      ? [
+                          {
+                            to: dashboardPath(),
+                            prefix: <ExtensionIcon />,
+                            children: "Welcome",
+                          },
+                        ]
+                      : [
+                          {
+                            to: dashboardPath("projects"),
+                            prefix: <BodyIcon />,
+                            children: "Projects",
+                          },
+                          {
+                            to: dashboardPath("templates"),
+                            prefix: <ExtensionIcon />,
+                            children: "Starter templates",
+                          },
+                        ]
+                  }
+                />
+              </CollapsibleSection>
+              <CollapsibleSection label="Help & support" fullWidth>
+                <NavigationItems
+                  items={help.map((item) => ({
+                    to: item.url,
+                    target: "_blank",
+                    prefix: item.icon,
+                    children: item.label,
+                  }))}
+                />
+              </CollapsibleSection>
+            </nav>
+            <PanelBanner>
+              <Text variant="titles">Inception is live</Text>
+              <Text color="subtle">
+                An AI-powered design tool to explore ideas and instantly
+                generate HTML/CSS for Webstudio Builder or any other platform.
+              </Text>
+              <Link
+                className={buttonStyle({
+                  color: "gradient",
+                })}
+                underline="none"
+                href="https://wstd.us/inception"
+                target="_blank"
+                color="contrast"
+              >
+                Get started with Inception
+              </Link>
+            </PanelBanner>
+          </Flex>
+          {view === "projects" && (
+            <Projects
+              projects={projects}
+              userPlanFeatures={userPlanFeatures}
+              publisherHost={publisherHost}
+              projectsTags={user.projectsTags}
+            />
+          )}
+          {view === "templates" && <Templates projects={templates} />}
+          {view === "welcome" && <Templates projects={templates} welcome />}
+          {view === "search" && <SearchResults {...data} />}
         </Flex>
-        {view === "projects" && (
-          <Projects
-            projects={projects}
-            userPlanFeatures={userPlanFeatures}
-            publisherHost={publisherHost}
-            projectsTags={user.projectsTags}
-          />
-        )}
-        {view === "templates" && <Templates projects={templates} />}
-        {view === "welcome" && <Templates projects={templates} welcome />}
-        {view === "search" && <SearchResults {...data} />}
-      </Flex>
-      <CloneProject projectToClone={projectToClone} />
-      <Toaster />
+        <CloneProject projectToClone={projectToClone} />
+        <Toaster />
+      </div>
     </TooltipProvider>
   );
 };

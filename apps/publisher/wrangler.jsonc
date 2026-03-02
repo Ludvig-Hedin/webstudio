@@ -1,0 +1,21 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "weblab-publisher",
+    "main": "src/index.ts",
+    "compatibility_date": "2025-04-28",
+    "vars": {
+        "PUBLISHER_HOST": "weblab.build"
+    },
+    "routes": [
+        {
+            "pattern": "*.weblab.build/*",
+            "zone_name": "weblab.build"
+        }
+    ],
+    "kv_namespaces": [
+        {
+            "binding": "CACHE",
+            "id": "598a55cef1474bb9a94ef87b784f60d4"
+        }
+    ]
+}

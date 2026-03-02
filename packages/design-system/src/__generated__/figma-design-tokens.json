@@ -378,7 +378,7 @@
       }
     },
     "white": {
-      "value": "#ffffff",
+      "value": "#FFFFFF",
       "type": "color"
     },
     "black": {
@@ -387,32 +387,32 @@
     },
     "background": {
       "panel": {
-        "value": "#fff",
+        "value": "#FFFFFF",
         "type": "color",
         "description": "background color for all panels, titles, columns and rows."
       },
       "primary": {
-        "value": "#096cff",
+        "value": "#007AFF",
         "type": "color",
         "description": "primary color, used in button"
       },
       "hover": {
-        "value": "#efefef",
+        "value": "#EFEFEF",
         "type": "color",
         "description": "hover color for toggle group button, icon button, toggle button, small icon button, small toggle button, nested select button, menu item large"
       },
       "active": {
-        "value": "#096cff",
+        "value": "#007AFF",
         "type": "color",
         "description": "color for active elements"
       },
       "menu": {
-        "value": "#fff",
+        "value": "#FFFFFF",
         "type": "color",
         "description": "background color for menu and select menu"
       },
       "controls": {
-        "value": "#f5f5f5",
+        "value": "#F5F5F5",
         "type": "color",
         "description": "background color for text input, toggle group, input field, color input, select button, panel button, text-area, search field, checkbox, spacing, flex control"
       },
@@ -423,17 +423,17 @@
       },
       "neutral": {
         "main": {
-          "value": "#d7dbdf",
+          "value": "#E5E5E5",
           "type": "color",
           "description": "used for neutral button"
         },
         "accent": {
-          "value": "#11181c",
+          "value": "#1A1A1A",
           "type": "color",
           "description": "accent color on neutral toast"
         },
         "notification": {
-          "value": "#ffffff",
+          "value": "#FFFFFF",
           "type": "color",
           "description": "background color on neutral toast"
         },
@@ -491,7 +491,7 @@
       },
       "preset": {
         "main": {
-          "value": "#e6e6e6",
+          "value": "#E5E5E5",
           "type": "color"
         },
         "hover": {
@@ -560,12 +560,12 @@
       },
       "item": {
         "current": {
-          "value": "#e1f0ff",
+          "value": "#007AFF",
           "type": "color",
           "description": "color for current item in the navigator item, menu item, pages panel item components"
         },
         "current-child": {
-          "value": "{background.panel}",
+          "value": "#FFFFFF",
           "type": "color",
           "description": "color for child of current item in the navigator item, pages panel item components"
         },
@@ -575,22 +575,22 @@
           "description": "color for the hidden current item in the navigator item component"
         },
         "menu-item-hover": {
-          "value": "#efefef",
+          "value": "#EFEFEF",
           "type": "color",
           "description": "The hover state on menu item components."
         }
       },
       "tooltip": {
         "main": {
-          "value": "#11181c",
+          "value": "#1A1A1A",
           "type": "color"
         },
         "builder": {
-          "value": "#ffffff",
+          "value": "#FFFFFF",
           "type": "color"
         },
         "designer": {
-          "value": "#ffffff",
+          "value": "#FFFFFF",
           "type": "color"
         }
       },
@@ -637,77 +637,77 @@
         },
         "gradient": {
           "token": {
-            "value": "linear-gradient(90deg, #834df400 0%, #834df4 31.87%)",
+            "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
             "type": "color"
           },
           "tag": {
-            "value": "linear-gradient(90deg, #d5411300 0%, #d54113 31.87%)",
+            "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
             "type": "color"
           },
           "unselected": {
-            "value": "linear-gradient(90deg, #68707600 0%, #687076 31.87%)",
+            "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
             "type": "color"
           },
           "local": {
-            "value": "linear-gradient(90deg, #096cff00 0%, #096cff 31.87%)",
+            "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
             "type": "color"
           }
         },
         "breakpoint": {
-          "value": "#bd2fdb",
+          "value": "#007AFF",
           "type": "color",
           "description": "The color of the style source badge that represents a breakpoint. Used in tooltips."
         },
         "local": {
-          "value": "#096cff",
+          "value": "#007AFF",
           "type": "color",
           "description": "For the local variant of the Style Source component."
         }
       },
       "canvas": {
-        "value": "#eee",
+        "value": "#EEEEEE",
         "type": "color",
         "description": "The color of the Builder UI canvas area background."
       },
       "topbar": {
-        "value": "#2d2d2d",
+        "value": "#FFFFFF",
         "type": "color",
         "description": "For the Builder UI top bar background color."
       },
       "gradient": {
         "primary": {
-          "value": "linear-gradient(135deg, #1774ff 0%, #bd2fdb 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color",
           "description": "For buttons and other larger UI elements that use a brand gradient. (experimental)"
         },
         "vertical": {
-          "value": "linear-gradient(180deg, #096cff 0%, #096cff 0.01%, #bd2fdb 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color",
           "description": "For vertically-oriented elements in the Builder UI that use a brand gradient background."
         },
         "horizontal": {
-          "value": "linear-gradient(90deg, #4a4efa 0%, #bd2fdb 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color",
           "description": "For horizontally-oriented elements in the Builder UI that use a brand gradient background."
         },
         "horizontal-reverse": {
-          "value": "linear-gradient(90deg, #bd2fdb 0%, #4a4efa 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color",
           "description": "Like horizontal brand gradient, but opposite direction."
         }
       },
       "menu-hint": {
-        "value": "#efefef",
+        "value": "#EFEFEF",
         "type": "color",
         "description": "For the background of the hint menu item."
       },
       "topbar-hover": {
-        "value": "#383838",
+        "value": "#EFEFEF",
         "type": "color",
         "description": "For tabs and button backgrounds that are in the top toolbar"
       },
       "workspace": {
-        "value": "#a9a9a9",
+        "value": "#EEEEEE",
         "type": "color",
         "description": "The color of the Builder UI canvas area background."
       },
@@ -742,25 +742,25 @@
       "background": {
         "project-card": {
           "front": {
-            "value": "linear-gradient(0deg, #fbf8ff 0%, #e2e2e2 100%)",
+            "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
             "type": "color",
             "description": "big text color in the project card component"
           },
           "back": {
-            "value": "linear-gradient(0deg, #fbf8ff 0%, #c7c7c7 100%)",
+            "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
             "type": "color"
           },
           "text-area": {
-            "value": "#ffffff",
+            "value": "#FFFFFF",
             "type": "color"
           }
         },
         "published-main": {
-          "value": "#39fbbb",
+          "value": "#007AFF",
           "type": "color"
         },
         "gradient": {
-          "value": "linear-gradient(180deg, #e63cfe 0%, #ffae3c 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color"
         },
         "published-contrast": {
@@ -768,15 +768,15 @@
           "type": "color"
         },
         "dashboard": {
-          "value": "radial-gradient(65.88% 47.48% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%),linear-gradient(0deg, rgba(255, 255, 255, 0) 49.46%, rgba(255, 255, 255, 0.33) 100%), linear-gradient(180deg, rgba(255, 174, 60, 0) 0%, rgba(230, 60, 254, 0.33) 100%),radial-gradient(211.58% 161.63% at 3.13% 100%, rgba(255, 174, 60, 0.3) 0%, rgba(227, 53, 255, 0) 100%), radial-gradient(107.1% 32.15% at 92.96% 5.04%, rgba(53, 255, 182, 0.2) 0%, rgba(74, 78, 250, 0.2) 100%), #EBFFFC;",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color"
         },
         "regular-button-selected": {
-          "value": "linear-gradient(180deg, #bffeec 0%, #fbfff6 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color"
         },
         "cta-button": {
-          "value": "linear-gradient(135deg, #4a4efa 0%, #bd2fdb 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color"
         }
       },
@@ -792,44 +792,44 @@
           "type": "color"
         },
         "full-gradient": {
-          "value": "linear-gradient(135deg, #92fddc 0%, #7d7ffb 31.94%, #ed72fe 64.24%, #fdd791 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color"
         },
         "navbar": {
-          "value": "linear-gradient(90deg, #39fbbb00 0%, #39fbbb 20%, #4a4efa 40.03%, #e63cfe 60.02%, #ffae3c 80.04%, #ffae3c00 100%, #ffae3c00 100%)",
+          "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
           "type": "color"
         }
       },
       "spinner-turquoise": {
-        "value": "#39fbbb",
+        "value": "#007AFF",
         "type": "color"
       },
       "spinner-blue": {
-        "value": "#4a4efa",
+        "value": "#007AFF",
         "type": "color"
       },
       "spinner-purple": {
-        "value": "#e63cfe",
+        "value": "#007AFF",
         "type": "color"
       },
       "spinner-orange": {
-        "value": "#ffae3c",
+        "value": "#007AFF",
         "type": "color"
       }
     },
     "border": {
       "main": {
-        "value": "#e6e6e6",
+        "value": "#E5E5E5",
         "type": "color",
         "description": "color for separators, panel borders, preset borders, input fields, select buttons, panel buttons, text area, search field, menu, select menu, spacing controls,"
       },
       "focus": {
-        "value": "#096cff",
+        "value": "#007AFF",
         "type": "color",
         "description": "border color for all focus elements"
       },
       "menu-inner": {
-        "value": "#fcfcfc",
+        "value": "#E5E5E5",
         "type": "color",
         "description": "inner border color for menu and select menu"
       },
@@ -839,7 +839,7 @@
         "description": "border color for color swatch"
       },
       "neutral": {
-        "value": "#e8e8e8",
+        "value": "#E5E5E5",
         "type": "color",
         "description": "border color for neutral toast"
       },
@@ -854,12 +854,12 @@
         "description": "border color for alert banner & toast"
       },
       "info": {
-        "value": "#096cff",
+        "value": "#007AFF",
         "type": "color",
         "description": "border color for info banner & toast"
       },
       "contrast": {
-        "value": "#ffffff",
+        "value": "#FFFFFF",
         "type": "color",
         "description": "border color to create contrast on dark/colored elements. Used in button, new position indicator for navigator"
       },
@@ -882,7 +882,7 @@
           "description": "border color of set elements"
         },
         "flex-ui": {
-          "value": "#096cff",
+          "value": "#007AFF",
           "type": "color",
           "description": "border color of set elements within the flex controls ui"
         }
@@ -929,18 +929,18 @@
         }
       },
       "primary": {
-        "value": "#096cff",
+        "value": "#007AFF",
         "type": "color"
       }
     },
     "foreground": {
       "main": {
-        "value": "#11181c",
+        "value": "#1A1A1A",
         "type": "color",
         "description": "default color for all text and icons"
       },
       "subtle": {
-        "value": "#656869",
+        "value": "#687076",
         "type": "color",
         "description": "color for less prominent elements. Used in small icon button, nested select button, input field, color input, select button, panel button, text area, search field & toast"
       },
@@ -965,12 +965,12 @@
         "description": "A brighter success color for use with icons and text against a dark bg. Not for use with text against light bg."
       },
       "info": {
-        "value": "#096cff",
+        "value": "#007AFF",
         "type": "color",
         "description": "info foreground color. Used in toast"
       },
       "disabled": {
-        "value": "#c1c8cd",
+        "value": "#C1C8CD",
         "type": "color",
         "description": "color for disabled foreground elements"
       },
@@ -993,12 +993,12 @@
       },
       "contrast": {
         "main": {
-          "value": "#ffffff",
+          "value": "#FFFFFF",
           "type": "color",
           "description": "color to create contrast over colored and dark backgrounds"
         },
         "subtle": {
-          "value": "#c1c8cd",
+          "value": "#C1C8CD",
           "type": "color",
           "description": "color to create a more subtle contrast over colored and dark backgrounds"
         }
@@ -1033,7 +1033,7 @@
         "description": "for subtle text that needs to be even more subtle \nthan \"text-subtle\"\n\nused as the color for text on title tab triggers and the category label of the font item component"
       },
       "primary": {
-        "value": "#096cff",
+        "value": "#007AFF",
         "type": "color"
       },
       "success-text": {
@@ -1059,11 +1059,11 @@
       },
       "icon": {
         "secondary": {
-          "value": "#c1c8cd",
+          "value": "#C1C8CD",
           "type": "color"
         },
         "main": {
-          "value": "#11181c",
+          "value": "#1A1A1A",
           "type": "color"
         }
       },
@@ -1095,7 +1095,7 @@
         "description": "The inverse color of our primary blue, when we want a contrasting highlight."
       },
       "reusable": {
-        "value": "#834df4",
+        "value": "#007AFF",
         "type": "color"
       }
     },
@@ -1408,11 +1408,11 @@
       "description": "Labels with code syntax, such as CSS property labels within tooltips"
     },
     "darkBlue-Fade": {
-      "value": "linear-gradient(180deg, #11273f 0%, #11273f00 100%)",
+      "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
       "type": "color"
     },
     "Stroke-Fade": {
-      "value": "linear-gradient(180deg, #9697fc 0%, #4a4efa00 100%)",
+      "value": "linear-gradient(135deg, #007AFF 0%, #007AFF 100%)",
       "type": "color"
     },
     "Link": {
@@ -1489,6 +1489,20 @@
       },
       "type": "typography",
       "description": "Mono text style with underline to indicate a text link"
+    },
+    "labels": {
+      "value": {
+        "fontFamily": "{fontFamilies.inter}",
+        "fontWeight": "{fontWeights.inter-2}",
+        "lineHeight": "{lineHeights.0}",
+        "fontSize": "{fontSize.2}",
+        "letterSpacing": "{letterSpacing.0}",
+        "paragraphSpacing": "{paragraphSpacing.0}",
+        "paragraphIndent": "{paragraphIndent.0}",
+        "textCase": "{textCase.none}",
+        "textDecoration": "{textDecoration.none}"
+      },
+      "type": "typography"
     }
   },
   "$themes": [],

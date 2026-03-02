@@ -483,33 +483,9 @@ const Publish = ({
     if (publishResult.success === false) {
       console.error(publishResult.error);
 
-      let error: JSX.Element | string = publishResult.error;
-      if (publishResult.error === "NOT_IMPLEMENTED") {
-        error = (
-          <>
-            <Tooltip
-              content={
-                <Text userSelect="text">
-                  {project.latestBuildVirtual?.buildId}
-                </Text>
-              }
-            >
-              <span>Build data</span>
-            </Tooltip>{" "}
-            for publishing has been successfully created. Use{" "}
-            <Link href="https://docs.webstudio.is/university/self-hosting/cli">
-              Webstudio&nbsp;CLI
-            </Link>{" "}
-            to generate the code.
-          </>
-        );
-      }
+      const error: JSX.Element | string = publishResult.error;
       setPublishError(error);
-      if (publishResult.error === "NOT_IMPLEMENTED") {
-        toast.info(error);
-      } else {
-        toast.error(error);
-      }
+      toast.error(error);
 
       if (process.env.NODE_ENV === "development") {
         // Refresh locally as it's always an error

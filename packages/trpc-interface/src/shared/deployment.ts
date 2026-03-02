@@ -30,26 +30,35 @@ export const Output = z.discriminatedUnion("success", [
 ]);
 
 /**
- * This is the ContentManagementService. It is currently used to publish content to a custom domain.
- * In the future, additional methods, such as a 'preview' function, could be added.
+ * Deployment service for publishing sites.
+ *
+ * For self-hosted instances, the build data is created in the DB by domain.ts
+ * and a separate Publisher Worker (Cloudflare) serves published sites dynamically
+ * by fetching build data from Supabase. No per-site deployment step is needed —
+ * the Worker picks up new builds automatically.
+ *
+ * The publish/unpublish mutations return success because the actual work
+ * (creating/deleting the build record) happens upstream in domain.ts.
  **/
 export const deploymentRouter = router({
   publish: procedure
     .input(PublishInput)
     .output(Output)
     .mutation(() => {
+      // Build data is already created in the DB by domain.ts before this is called.
+      // The Publisher Worker serves sites dynamically from the DB — no deployment step needed.
       return {
-        success: false,
-        error: "NOT_IMPLEMENTED",
+        success: true,
       };
     }),
   unpublish: procedure
     .input(UnpublishInput)
     .output(Output)
     .mutation(() => {
+      // Build record is already deleted/updated in the DB by domain.ts.
+      // The Publisher Worker will stop serving the site automatically.
       return {
-        success: false,
-        error: "NOT_IMPLEMENTED",
+        success: true,
       };
     }),
 });

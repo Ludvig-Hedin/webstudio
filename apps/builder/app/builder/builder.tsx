@@ -3,6 +3,7 @@ import { useStore } from "@nanostores/react";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import {
   theme,
+  darkTheme,
   Box,
   Toaster,
   type CSS,
@@ -76,6 +77,7 @@ import { RemoteDialog } from "./features/help/remote-dialog";
 import type { SidebarPanelName } from "./sidebar-left/types";
 import { SidebarLeft } from "./sidebar-left/sidebar-left";
 import { useDisableContextMenu } from "./shared/use-disable-context-menu";
+import { useDarkMode } from "./hooks/use-dark-mode";
 
 const useSetWindowTitle = () => {
   const project = useStore($project);
@@ -213,6 +215,8 @@ const ChromeWrapper = ({
         overflow: "hidden",
         display: "grid",
         gridTemplateRows: "auto 1fr auto",
+        background: theme.colors.backgroundPanel,
+        color: theme.colors.foregroundMain,
         ...gridLayout,
       }}
     >
@@ -240,6 +244,7 @@ export const Builder = ({
   stagingUsername,
   stagingPassword,
 }: BuilderProps) => {
+  const isDarkMode = useDarkMode();
   useMount(initBuilderApi);
 
   useMount(() => {
@@ -374,6 +379,7 @@ export const Builder = ({
   return (
     <TooltipProvider>
       <div
+        className={isDarkMode ? darkTheme.className : undefined}
         style={{ display: "contents" }}
         onPointerDown={inertHandlers.onPointerDown}
         onInput={inertHandlers.onInput}
